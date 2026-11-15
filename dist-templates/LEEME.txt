@@ -1,0 +1,55 @@
+Horas Hombre — versión portable para Windows
+============================================
+
+Si el zip pesa mucho: en la carpeta del proyecto (Mac) hay un paquete
+liviano de codigo (ver PAQUETE-WINDOWS.txt) y build.ps1 para armar venv\
+en una PC Windows con Internet una sola vez.
+
+Requisitos
+----------
+- Windows 10 u 11 de 64 bits
+- No hace falta instalar Python ni tener permisos de administrador
+- No hace falta conexión a Internet para usar la aplicación
+- Navegador instalado (Edge o Chrome)
+
+Cómo usar
+---------
+1. Copie la carpeta completa "HorasHombre" a la PC (USB, escritorio o carpeta de usuario).
+   Evite carpetas protegidas como C:\Program Files.
+
+2. Haga doble clic en HorasHombre.bat.
+
+3. Se abrirá una ventana negra (consola) y el navegador con la aplicación.
+   No cierre la ventana negra mientras trabaja; si la cierra, la app deja de funcionar.
+
+4. Si el navegador no abre solo, abra manualmente la dirección que aparece en la consola
+   (por ejemplo http://127.0.0.1:8501).
+
+Datos
+-----
+La base de datos y el Excel maestro se guardan en la subcarpeta:
+
+    data\
+
+Archivos principales:
+- data\horas_hombre.db       confirmaciones y disponibilidad
+- data\confirmaciones.xlsx   exportación del maestro (se genera al importar)
+
+Para mover datos entre PCs, copie esos archivos dentro de data\.
+
+Problemas frecuentes
+-------------------
+- Windows SmartScreen puede advertir al ejecutar un .bat desde USB:
+  "Más información" → "Ejecutar de todas formas", o desbloquee el archivo
+  en Propiedades → General → Desbloquear.
+
+- Antivirus corporativo: si bloquea python.exe dentro de la carpeta, pida
+  una excepción para la carpeta HorasHombre completa.
+
+- Puerto ocupado: la app prueba puertos desde 8501; si todos están en uso,
+  cierre otras copias de Horas Hombre.
+
+Cierre
+------
+Cierre la pestaña del navegador y luego cierre la ventana negra (consola),
+o pulse Ctrl+C en la consola.

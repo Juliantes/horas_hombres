@@ -1,0 +1,56 @@
+Horas Hombre — que llevar a Windows
+====================================
+
+Hay dos formas. Elija segun Internet y espacio en disco.
+
+
+A) Liviano (~pocos KB de codigo) — RECOMENDADO si en planta hay Internet UNA vez
+---------------------------------------------------------------------------------
+Copie solo estos archivos (carpeta nueva, p. ej. C:\Users\...\HorasHombre):
+
+  HorasHombre.bat
+  build.ps1
+  horas_hombre.py
+  sap_import.py
+  requirements-portable.txt   (o requirements.txt)
+  PAQUETE-WINDOWS.txt           (esta guia, opcional)
+
+NO lleve: .venv de Mac, dist\, build\, tests\, horas_hombre.db (salvo que quiera datos).
+
+En la PC Windows (con Internet, sin admin suele alcanzar para venv en su carpeta):
+
+  1. Clic derecho en build.ps1 -> "Ejecutar con PowerShell"
+     o en cmd:  powershell -ExecutionPolicy Bypass -File build.ps1
+  2. Esperar a que cree venv\ e instale paquetes (~5–15 min).
+  3. Doble clic en HorasHombre.bat.
+
+La primera vez pesa ~150–250 MB por venv\ (Streamlit, pandas, etc.).
+Eso es normal: es mas liviano que el zip de Mac solo para TRANSPORTAR el codigo.
+Despues de build.ps1, la carpeta completa con venv\ es el paquete de trabajo.
+
+Para otra PC sin Internet: copie la carpeta ENTERA despues del build
+(incluido venv\). Si falla en otra maquina, ejecute build.ps1 otra vez alli.
+
+
+B) Pesado pero sin Python ni build en planta (~150 MB zip)
+----------------------------------------------------------
+Use el zip generado en Mac:
+
+  dist\HorasHombre-portable-win64.zip
+
+Descomprimir -> HorasHombre\ -> HorasHombre.bat (usa python\ embebido, sin venv).
+
+
+Datos
+-----
+  data\horas_hombre.db
+  data\confirmaciones.xlsx
+
+Coloquelos en data\ (se crea sola) para conservar importaciones.
+
+
+Navegador
+---------
+HorasHombre.bat intenta abrir Firefox. Si no esta, abra manualmente:
+
+  http://127.0.0.1:8501
